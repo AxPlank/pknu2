@@ -6,6 +6,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <script src="{% static 'jquery-3.6.0.min.js' %}"></script>
+    <!-- 이하 자바스크립트 -->
+    {% block script %}
+    {% endblock %}
+    <!-- 이상 자바스크립트 -->
     <script src="{% static 'bootstrap.min.js' %}"></script>
     <title> Hello, Pybo! </title>
 </head>
