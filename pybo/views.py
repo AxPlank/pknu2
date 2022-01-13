@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Question
+from .models import Question, Answer
 from django.utils import timezone
 from .forms import QuestionForm, AnswerForm
 from django.core.paginator import Paginator
@@ -108,3 +108,11 @@ def question_delete(request, question_id):
         return redirect('pybo:detail', question_id=question.id)
     question.delete()
     return redirect('pybo:index')
+
+@login_required(login_url='common:login')
+def answer_modify(request, answer_id):
+    """
+    Answer 내용 수정
+    """
+    answer = get_object_or_404(Answer, pk=answer_id)
+    if request.method == "POST":
